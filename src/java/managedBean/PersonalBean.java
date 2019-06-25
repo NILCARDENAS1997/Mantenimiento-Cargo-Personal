@@ -5,8 +5,8 @@
  */
 package managedBean;
 
-import dao.MascotaDao;
-import entidades.Mascota;
+import dao.PersonalDao;
+import entidades.Personal;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -19,26 +19,26 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @ViewScoped
-public class MascotaBean {
+public class PersonalBean {
 
-    private Mascota mascota;
+    private Personal personal;
 
-    public Mascota getMascota() {
-        return mascota;
+    public Personal getPersonal() {
+        return personal;
     }
 
-    public void setMascota(Mascota mascota) {
-        this.mascota = mascota;
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
     }
 
-    public MascotaBean() {
-        this.mascota = new Mascota();
+    public PersonalBean() {
+        this.personal = new Personal();
     }
 
-    public String guardarMascota() {
+    public String guardarPersonal() {
 
-        MascotaDao dao = new MascotaDao();
-        boolean respuesta = dao.guardarMascota(mascota);
+        PersonalDao dao = new PersonalDao();
+        boolean respuesta = dao.guardarPersonal(personal);
 
         if (respuesta) {
 
@@ -46,42 +46,42 @@ public class MascotaBean {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo registrar"));
         }
-        return "/index.xhtml";
+        return "/RegistroPersonal.xhtml";
     }
 
-    public String actualizarMascota() {
-        MascotaDao dao = new MascotaDao();
-        boolean respuesta = dao.actualizarMascota(mascota);
+    public String actualizarPersonal() {
+        PersonalDao dao = new PersonalDao();
+        boolean respuesta = dao.actualizarPersonal(personal);
         if (respuesta) {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Correcto", "Registro actualizo con exito"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo actualizar"));
         }
-        return "/index.xhtml";
+        return "/RegistroPersonal.xhtml";
     }
 
-    public ArrayList<Mascota> listarMascotas() {
-        ArrayList<Mascota> milista = new ArrayList<>();
-        MascotaDao dao = new MascotaDao();
-        milista = dao.listarMascotas();
+    public ArrayList<Personal> listarPersonales() {
+        ArrayList<Personal> milista = new ArrayList<>();
+        PersonalDao dao = new PersonalDao();
+        milista = dao.listarPersonales();
 
         return milista;
     }
 
     public String limpiar() {
-        return "/index.xhtml";
+        return "/RegistroPersonal.xhtml";
     }
 
-    public String eliminarMascota() {
-        MascotaDao dao = new MascotaDao();
-        boolean respuesta = dao.eliminarMascota(mascota);
+    public String eliminarPersonal() {
+        PersonalDao dao = new PersonalDao();
+        boolean respuesta = dao.eliminarPersonal(personal);
         if (respuesta) {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Correcto", "Registro Borrado con exito"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo eliminar"));
         }
-        return "/index.xhtml";
+        return "/RegistroPersonal.xhtml";
     }
 }

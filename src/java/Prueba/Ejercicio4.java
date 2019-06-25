@@ -15,15 +15,16 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author NIL CARDENAS
+ * @author LeguiA
  */
 public class Ejercicio4 {
+
     public static void main(String[] args) {
-        ArrayList<Mascota> lista = new ArrayList<>();       
-        MascotaDao mascotadao = new MascotaDao();        
-        Session sesion = HibernateUtil.getSessionFactory().openSession();       
-        lista = mascotadao.listPastor(sesion);       
-        for(Mascota mascota : lista){
+        ArrayList<Mascota> lista = new ArrayList<>();
+        MascotaDao mascotadao = new MascotaDao();
+        Session sesion = HibernateUtil.getSessionFactory().openSession();
+        lista = mascotadao.listPastor(sesion);
+        for (Mascota mascota : lista) {
             System.out.println(mascota.getRaza());
         }
     }

@@ -5,8 +5,8 @@
  */
 package managedBean;
 
-import dao.MascotaDao;
-import entidades.Mascota;
+import dao.ClienteDao;
+import entidades.Cliente;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -19,26 +19,26 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean
 @ViewScoped
-public class MascotaBean {
+public class ClienteBean {
 
-    private Mascota mascota;
+    private Cliente cliente;
 
-    public Mascota getMascota() {
-        return mascota;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setMascota(Mascota mascota) {
-        this.mascota = mascota;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public MascotaBean() {
-        this.mascota = new Mascota();
+    public ClienteBean() {
+        this.cliente = new Cliente();
     }
 
-    public String guardarMascota() {
+    public String guardarCliente() {
 
-        MascotaDao dao = new MascotaDao();
-        boolean respuesta = dao.guardarMascota(mascota);
+        ClienteDao dao = new ClienteDao();
+        boolean respuesta = dao.guardarCliente(cliente);
 
         if (respuesta) {
 
@@ -46,42 +46,42 @@ public class MascotaBean {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo registrar"));
         }
-        return "/index.xhtml";
+        return "/RegistroCliente.xhtml";
     }
 
-    public String actualizarMascota() {
-        MascotaDao dao = new MascotaDao();
-        boolean respuesta = dao.actualizarMascota(mascota);
+    public String actualizarCliente() {
+        ClienteDao dao = new ClienteDao();
+        boolean respuesta = dao.actualizarCliente(cliente);
         if (respuesta) {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Correcto", "Registro actualizo con exito"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo actualizar"));
         }
-        return "/index.xhtml";
+        return "/RegistroCliente.xhtml";
     }
 
-    public ArrayList<Mascota> listarMascotas() {
-        ArrayList<Mascota> milista = new ArrayList<>();
-        MascotaDao dao = new MascotaDao();
-        milista = dao.listarMascotas();
+    public ArrayList<Cliente> listarClientes() {
+        ArrayList<Cliente> milista = new ArrayList<>();
+        ClienteDao dao = new ClienteDao();
+        milista = dao.listarClientes();
 
         return milista;
     }
 
     public String limpiar() {
-        return "/index.xhtml";
+        return "/RegistroCliente.xhtml";
     }
 
-    public String eliminarMascota() {
-        MascotaDao dao = new MascotaDao();
-        boolean respuesta = dao.eliminarMascota(mascota);
+    public String eliminarCliente() {
+        ClienteDao dao = new ClienteDao();
+        boolean respuesta = dao.eliminarCliente(cliente);
         if (respuesta) {
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Correcto", "Registro Borrado con exito"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo eliminar"));
         }
-        return "/index.xhtml";
+        return "/RegistroCliente.xhtml";
     }
 }

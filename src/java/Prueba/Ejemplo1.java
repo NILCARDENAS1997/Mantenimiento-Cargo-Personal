@@ -10,7 +10,7 @@ import entidades.Mascota;
 
 /**
  *
- * @author NIL CARDENAS
+ * @author LeguiA
  */
 public class Ejemplo1 {
 
@@ -19,10 +19,10 @@ public class Ejemplo1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         MascotaDao mascotadao = new MascotaDao();
         Mascota mimascota = new Mascota(10, "Pablito", "Adan", "Chihuahua");
-        
+
         mascotadao.guardarMascota(mimascota);
-    }  
+    }
 }

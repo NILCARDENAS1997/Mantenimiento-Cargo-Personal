@@ -11,16 +11,17 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author NIL CARDENAS
+ * @author LeguiA
  */
 public class Ejercicio6 {
+
     public static void main(String[] args) {
-         Integer contar;
-     
+        Integer contar;
+
         Session sesion = HibernateUtil.getSessionFactory().openSession();
         MascotaDao mascotadao = new MascotaDao();
-        contar= mascotadao.listCount(sesion);
-        
+        contar = mascotadao.listCount(sesion);
+
         System.out.println(contar);
     }
 }

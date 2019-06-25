@@ -14,7 +14,7 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author NIL CARDENAS
+ * @author LeguiA
  */
 public class Ejemplo2 {
 
@@ -24,16 +24,16 @@ public class Ejemplo2 {
     public static void main(String[] args) {
         // TODO code application logic here
         ArrayList<Mascota> lista = new ArrayList<>();
-        
+
         MascotaDao mascotadao = new MascotaDao();
-        
+
         Session sesion = HibernateUtil.getSessionFactory().openSession();
-        
+
         lista = mascotadao.listarMascotas();
-        
-        for(Mascota mascota : lista){
+
+        for (Mascota mascota : lista) {
             System.out.println(mascota.getNombreMascota());
         }
     }
-    
+
 }

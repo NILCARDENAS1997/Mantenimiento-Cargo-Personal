@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>REGISTRO CLIENTE</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./TemplateVeterinaria.xhtml">
+            <ui:define name="content">
+                <p:growl id="msj" autoUpdate="true"/>
+                <div align="center">
+                    <h:form id="formCliente">
+                        <p:panel style="width:40">
+                            <f:facet name="header">
+                                <p:column>
+                                    <p:outputLabel value ="Registro Cliente"/>
+                                </p:column>
+                            </f:facet>
+                            <p:panelGrid style="width:40 ">
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="ID"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.idCliente1}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="Nombre Cliente"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.nombre}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="Apellido Cliente"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.apellido}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="Fecha Nacimiento"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.fechaNacimiento}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="Direccion"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.direccion}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="Telefono"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.telefono}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <p:outputLabel value="Email"/>
+                                    </p:column>
+                                    <p:column>
+                                        <p:inputText value="#{clienteBean.cliente.email}" required="true"/>
+                                    </p:column>
+                                </p:row>
+                            </p:panelGrid>
+                            <p:commandButton value="Registrar" action="#{clienteBean.guardarCliente()}" update=":formData:dataTable,:formCliente"/>
+                            <p:commandButton value="Nuevo" action="#{clienteBean.limpiar()}" update=":formCliente"/>
+                            <p:commandButton value="Actualizar" action="#{clienteBean.actualizarCliente()}" update=":formData:dataTable,:formCliente"/>
+                        </p:panel>
+                    </h:form>
+
+                    <h:form id="formData">
+
+                        <p:dataTable rowKey="#{cliente.idCliente1}" selection="#{clienteBean.cliente}" selectionMode="single" id="dataTable" var="cliente" value="#{clienteBean.listarClientes()}">
+                            <p:ajax event="rowSelect" update=":formCliente"/>
+                            <p:column headerText="Codigo">
+                                <p:outputLabel value="#{cliente.idCliente1}"/>
+                            </p:column>
+                            <p:column headerText="Cliente">
+                                <p:outputLabel value="#{cliente.nombre}"/>
+                            </p:column>
+                            <p:column headerText="Apellido">
+                                <p:outputLabel value="#{cliente.apellido}"/>
+                            </p:column>
+                            <p:column headerText="fechaNacimiento">
+                                <p:outputLabel value="#{cliente.fechaNacimiento}"/>
+                            </p:column>
+                            <p:column headerText="Telefono">
+                                <p:outputLabel value="#{cliente.telefono}"/>
+                            </p:column>
+                            <p:column headerText="email">
+                                <p:outputLabel value="#{cliente.email}"/>
+                            </p:column>
+                            <p:column>
+                                <p:commandButton value="ELIMINAR" action="#{clienteBean.eliminarCliente()}" update=":formData:dataTable,:formCliente"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

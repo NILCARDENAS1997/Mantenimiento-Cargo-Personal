@@ -10,24 +10,22 @@ import entidades.Mascota;
 import org.hibernate.Session;
 import utilitarios.HibernateUtil;
 
-
-
 /**
  *
- * @author NIL CARDENAS
+ * @author LeguiA
  */
 public class Ejercicio3 {
-    
-    public static void main(String[] args ){
-        
+
+    public static void main(String[] args) {
+
         Session session = HibernateUtil.getSessionFactory().openSession();
         MascotaDao mascotadao = new MascotaDao();
         Mascota actualizardatos = new Mascota(7, "Brunooo", "Jesus", "Chihuahua");
-        mascotadao.actualizarMascota(session, actualizardatos);
-        
+        mascotadao.actualizarMascota(actualizardatos);
+
         session.beginTransaction();
         session.saveOrUpdate(actualizardatos);
         session.getTransaction().commit();
-        session.close();  
+        session.close();
     }
 }
