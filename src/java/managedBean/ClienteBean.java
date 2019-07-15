@@ -15,7 +15,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author LeguiA
+ * @author NIL CARDENAS
  */
 @ManagedBean
 @ViewScoped
@@ -41,7 +41,6 @@ public class ClienteBean {
         boolean respuesta = dao.guardarCliente(cliente);
 
         if (respuesta) {
-
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Correcto", "Se Registro Crrectamente"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error", "No se pudo registrar"));

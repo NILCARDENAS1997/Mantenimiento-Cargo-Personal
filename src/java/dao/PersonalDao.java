@@ -15,7 +15,7 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author LeguiA
+ * @author NIL CARDENAS
  */
 public class PersonalDao implements IPersonal {
 
@@ -47,7 +47,7 @@ public class PersonalDao implements IPersonal {
 
         //Ejecutar la consulta y obtener la lista
         milista = (ArrayList<Personal>) query.list();
-
+        session.close();
         return milista;
 
     }

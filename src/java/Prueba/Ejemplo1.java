@@ -10,7 +10,7 @@ import entidades.Mascota;
 
 /**
  *
- * @author LeguiA
+ * @author NIL CARDENAS
  */
 public class Ejemplo1 {
 

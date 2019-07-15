@@ -12,7 +12,7 @@ import utilitarios.HibernateUtil;
 
 /**
  *
- * @author LeguiA
+ * @author NIL CARDENAS
  */
 public class Ejercicio3 {
 

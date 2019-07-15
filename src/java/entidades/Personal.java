@@ -18,7 +18,7 @@ public class Personal  implements java.io.Serializable {
      private String cargo;
      private String email;
      private String apellido;
-     private Set atencions = new HashSet(0);
+     private Set atenciones = new HashSet(0);
 
     public Personal() {
     }
@@ -41,7 +41,7 @@ public class Personal  implements java.io.Serializable {
        this.cargo = cargo;
        this.email = email;
        this.apellido = apellido;
-       this.atencions = atencions;
+       this.atenciones = atencions;
     }
    
     public int getIdPersonal() {
@@ -94,11 +94,11 @@ public class Personal  implements java.io.Serializable {
         this.apellido = apellido;
     }
     public Set getAtencions() {
-        return this.atencions;
+        return this.atenciones;
     }
     
     public void setAtencions(Set atencions) {
-        this.atencions = atencions;
+        this.atenciones = atencions;
     }
 
 

@@ -15,13 +15,14 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author LeguiA
+ * @author NIL CARDENAS
  */
 @ManagedBean
 @ViewScoped
 public class PersonalBean {
 
     private Personal personal;
+    private boolean banderaSelect;
 
     public Personal getPersonal() {
         return personal;
@@ -84,4 +85,17 @@ public class PersonalBean {
         }
         return "/RegistroPersonal.xhtml";
     }
+
+    public void selectBandera() {
+        banderaSelect = true;
+    }
+
+    public boolean isBanderaSelect() {
+        return banderaSelect;
+    }
+
+    public void setBanderaSelect(boolean banderaSelect) {
+        this.banderaSelect = banderaSelect;
+    }
+
 }
